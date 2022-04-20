@@ -12,7 +12,7 @@
     <groupId>ru.job4j</groupId>
     <artifactId>job4j_hibernate</artifactId>
     <version>1.0</version>
-    <name>Job4j hibernate</name>
+    <name>Job4j hiber</name>
 
     <properties>
         <java.version>17</java.version>

@@ -1,12 +1,12 @@
-package ru.job4j.hibernate;
+package ru.job4j.hibernate.toMany;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import ru.job4j.hibernate.model.Brand;
-import ru.job4j.hibernate.model.Model;
+import ru.job4j.hibernate.toMany.model.Brand;
+import ru.job4j.hibernate.toMany.model.Model;
 
 public class HbmRun {
     public static void main(String[] args) {

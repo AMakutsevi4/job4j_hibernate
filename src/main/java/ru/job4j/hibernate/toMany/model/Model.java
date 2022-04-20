@@ -1,4 +1,4 @@
-package ru.job4j.hibernate.model;
+package ru.job4j.hibernate.toMany.model;
 
 import javax.persistence.*;
 import java.util.Objects;

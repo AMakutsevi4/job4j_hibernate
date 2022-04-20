@@ -1,24 +1,26 @@
-package ru.job4j.hibernate.model;
+package ru.job4j.hibernate.manyToMany.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Table(name = "j_brand")
-public class Brand {
+@Table(name = "author")
+public class Author {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Model> models = new ArrayList<>();
 
-    public static Brand of(String name) {
-        Brand brand = new Brand();
-        brand.name = name;
-        return brand;
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set<Book> books = new HashSet<>();
+
+    public static Author of(String name) {
+        Author author = new Author();
+        author.name = name;
+        return author;
     }
 
     public int getId() {
@@ -37,6 +39,15 @@ public class Brand {
         this.name = name;
     }
 
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -45,8 +56,8 @@ public class Brand {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Brand brand = (Brand) o;
-        return Objects.equals(name, brand.name);
+        Author author = (Author) o;
+        return Objects.equals(name, author.name);
     }
 
     @Override
@@ -54,7 +65,4 @@ public class Brand {
         return Objects.hash(name);
     }
 
-    public void add(Model model) {
-        this.models.add(model);
-    }
 }
