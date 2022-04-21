@@ -12,15 +12,18 @@ public class Candidate {
     private String name;
     private String experience;
     private int salary;
+    @OneToOne(fetch = FetchType.LAZY)
+    private VacancyDB date;
 
     public Candidate() {
     }
 
-    public static Candidate of(String name, String experience, int salary) {
+    public static Candidate of(String name, String experience, int salary, VacancyDB date) {
         Candidate candidate = new Candidate();
         candidate.name = name;
         candidate.experience = experience;
         candidate.salary = salary;
+        candidate.date = date;
         return candidate;
     }
 
@@ -54,5 +57,13 @@ public class Candidate {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public VacancyDB getDate() {
+        return date;
+    }
+
+    public void setData(VacancyDB date) {
+        this.date = date;
     }
 }

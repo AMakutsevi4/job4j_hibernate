@@ -18,9 +18,9 @@ public class HbmRun {
             Session session = sf.openSession();
             session.beginTransaction();
 
-            Candidate one = Candidate.of("Alexandr", "нет опыта", 80_000);
-            Candidate two = Candidate.of("Petr", "опыт 15 лет", 1_000_000);
-            Candidate three = Candidate.of("Sergey", "опыт 2 года", 550_000);
+            Candidate one = Candidate.of("Alexandr", "нет опыта", 80_000, new VacancyDB());
+            Candidate two = Candidate.of("Petr", "опыт 15 лет", 1_000_000, new VacancyDB());
+            Candidate three = Candidate.of("Sergey", "опыт 2 года", 550_000, new VacancyDB());
 
             session.save(one);
             session.save(two);
